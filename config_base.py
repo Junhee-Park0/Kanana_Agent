@@ -1,5 +1,5 @@
-class Config:
-    """Agent 전역 설정"""
+class BaseConfig:
+    """Agent 전역 설정 (모든 Agent에 공통적으로 사용되는 설정)"""
 
     # --------------------------------------------
     # Agent 설정 파일 (ID와 FastAPI 접속 주소 매핑)
