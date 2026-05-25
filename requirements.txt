@@ -13,10 +13,12 @@ psutil>=5.9.0
 --extra-index-url https://download.pytorch.org/whl/cu124
 torch==2.6.0+cu124; platform_system == "Linux"
 torch>=2.6.0; platform_system != "Linux"
-transformers>=4.57.0,<5.0.0
+
+# 하위 에이전트별 pin(4.46.3 ~ 4.57.3)을 모두 포괄
+transformers>=4.46.3,<5.0.0
 accelerate>=0.34.0
 sentencepiece>=0.2.0
-tokenizers>=0.21.0
+tokenizers>=0.20.3,<1.0.0
 safetensors>=0.4.3
 huggingface_hub<1.0
 
@@ -32,6 +34,12 @@ langchain-community>=0.2.0
 langchain-huggingface>=0.1.0
 langchain-chroma>=0.1.0
 langchain-tavily>=0.1.0
+langchain-experimental
+langchain-qdrant
+qdrant-client
+
+# Web Search
+tavily-python
 
 # FastAPI 서버
 fastapi>=0.111.0
@@ -52,9 +60,6 @@ pytesseract>=0.1.0             # OCR
 pdf2image>=1.16.0              # PDF to image
 kss>=2.0.0                     # Korean sentence splitter
 
-# Web Search
-tavily>=0.1.0
-
 #############################################
 ### Stock Agent - 준희
 #############################################
@@ -70,7 +75,7 @@ ipykernel>=6.29.0
 ### Report Agent - 승연
 #############################################
 pypdf>=4.0
-PyMuPDF                        # fitz: PDF 렌더링
+PyMuPDF                      
 
 #############################################
 ### Trend Agent - 예린
@@ -81,4 +86,5 @@ python-dateutil>=2.9.0
 #############################################
 ### News Agent - 현진
 #############################################
-# (미구현 - 추후 추가 예정)
+# News 전용 추가 의존성
+openpyxl

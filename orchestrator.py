@@ -9,10 +9,9 @@ from __future__ import annotations
 import asyncio
 from typing import Any, Dict, List, Optional
 
-# 루트 `utils`·하위 에이전트 `utils`와 충돌하지 않도록 파이프라인을 먼저 로드
-from src.core.kanana_pipeline import call_kanana, call_kanana_structured
-from src.functions import load_prompt, map_comp_name_to_ticker
-from src.schemas import (
+from utils.kanana_pipeline import call_kanana, call_kanana_structured
+from orchestrator.functions import load_prompt, map_comp_name_to_ticker
+from orchestrator.schemas import (
     UserInput,
     AgentRequest,
     AgentResponse,
@@ -20,8 +19,8 @@ from src.schemas import (
     AgentName,
 )
 
-from Legal_Agent.main import legal_agent_main
-from Stock_Agent.main import stock_agent_main
+from legal_agent.main import legal_agent_main
+from stock_agent.main import stock_agent_main
 
 
 def _legal_raw_to_agent_response(raw: Any) -> AgentResponse:
