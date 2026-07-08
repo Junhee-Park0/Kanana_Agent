@@ -111,13 +111,13 @@ input_router → query_rewriter
                                                               │
                                                context_evaluator
                                                     │
-                             ENOUGH ←──────────────┤
-                               │               NOT_ENOUGH → web_searcher → context_filter
-                               │                                              → context_reranker
-                               ▼                                              → context_evaluator
-                        answer_generator → answer_evaluator
-                                                  │
-                               ENOUGH ──→ END    NOT_ENOUGH → answer_regenerator ──→ answer_evaluator
+                              ENOUGH ←──────────────┤
+                                │               NOT_ENOUGH → web_searcher → context_filter
+                                │                                              → context_reranker
+                                ▼                                              → context_evaluator
+                         answer_generator → answer_evaluator
+                                                    │
+                                ENOUGH ──→ END    NOT_ENOUGH → answer_regenerator ──→ answer_evaluator
 ```
 
 ---
@@ -135,15 +135,15 @@ query_rewrite → query_structuring → retrieve_and_rerank → gen_internal_ans
                                                                      │
                                                     hallucination_check_internal
                                                            │
-                             retry ←──────────────────────┤
-                               │                      to_external ↓
-                         query_rewrite_retry        web_search_finance
-                               │                          │
-                         query_structuring         has_results → gen_final_answer → hallucination_check_final
-                                                                                           │
-                                                  pass → format_answer → END    regenerate → gen_final_answer
-                                                                                re_retrieve → retrieve_and_rerank
-                                                  cannot_answer → END
+                              retry ←──────────────────────┤
+                                │                      to_external ↓
+                          query_rewrite_retry        web_search_finance
+                                │                          │
+                          query_structuring         has_results → gen_final_answer → hallucination_check_final
+                                                                                            │
+                                                   pass → format_answer → END    regenerate → gen_final_answer
+                                                                                 re_retrieve → retrieve_and_rerank
+                                                   cannot_answer → END
 ```
 
 ---
@@ -157,10 +157,10 @@ query_rewrite → query_structuring → retrieve_and_rerank → gen_internal_ans
 **내부 LangGraph 워크플로우**:
 
 ```
-              ┌──────────────────────────┐
+              ┌───────────────────────────┐
               │      RouterAgent          │
-              │ (task 유형에 따라 분기)   │
-              └────────────┬──────────────┘
+              │ (task 유형에 따라 분기)    │
+              └─────────────┬─────────────┘
                             ▼
 node_upstage_parse → node_select_metrics → node_llm_extract
                                                   │
@@ -187,7 +187,7 @@ node_upstage_parse → node_select_metrics → node_llm_extract
     ▼
 [2단계] Multi-Agent Debate (stock_src/Agent/, agent_debate_graph)
 
-   Optimist Agent ──┐
+   Optimist Agent ───┐
    (낙관론 제시)      │
                      ├─→ 토론 (최대 6턴, 번갈아 발언) ─→ 합의 노드 ─→ END
    Pessimist Agent ──┘                                (최종 투자 리포트 생성)
@@ -208,17 +208,17 @@ input_router
     │
     ├─ finance ──→ multi_query_generator → check_availability → rag_searcher
     │                                                                    │
-    └─ general/off_topic ──→ direct_answer ──→ END                      │
+    └─ general/off_topic ──→ direct_answer ──→ END                       │
                                                               context_evaluator
                                                                     │
-                                              Enough ─────────────┤
-                                                │             Not_Enough → web_searcher
-                                                │                                │
-                                                │                        context_filter
-                                                │                                │
-                                                │                        context_reranker
-                                                │                                │
-                                                └───────── (병합) ────────────────┘
+                                                Enough ─────────────┤
+                                                 │             Not_Enough → web_searcher
+                                                 │                                │
+                                                 │                        context_filter
+                                                 │                                │
+                                                 │                        context_reranker
+                                                 │                                │
+                                                 └───────── (병합) ────────────────┘
                                                                     │
                                                         answer_generator
                                                                     │
@@ -241,8 +241,8 @@ input_router
 
 ```json
 {
-  "question": "삼성전자 최근 실적 발표 요약해줘",
-  "ticker": "005930",
+  "question": "엔비디아 최근 실적 발표 요약해줘",
+  "ticker": "NVDA",
   "agents": ["news_agent"],
   "document_base64": null,
   "compare_mode": null
@@ -280,7 +280,7 @@ input_router
 
 ### Stock Agent 탭
 ```
-입력 Ticker: "005930" (삼성전자)
+입력 Ticker: "NVDA" (엔비디아)
 → 흐름: 공시 크롤링 → Optimist/Pessimist 최대 6턴 토론 → 합의
 → 출력: Buy/Sell/Hold 의견 + 근거 요약 + 리스크 요인
 ```
