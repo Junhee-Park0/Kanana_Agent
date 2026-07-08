@@ -402,60 +402,60 @@ streamlit run app.py
 
 ```
 Kanana_Agent/
-├── app.py                  # Streamlit 프론트엔드
-├── main.py                 # FastAPI 백엔드
-├── config.py               # 전역 설정 (BaseConfig)
-├── agent_setup.py          # 모델·데이터 초기화
-├── setup_and_run.sh        # 원클릭 설치·실행 스크립트
-├── run.sh                  # 서버 실행 스크립트
-├── requirements.txt        # Python 의존성
-├── .env.example             # 환경변수 예시
+├── app.py                     # Streamlit 프론트엔드
+├── main.py                    # FastAPI 백엔드
+├── config.py                  # 전역 설정 (BaseConfig)
+├── agent_setup.py             # 모델·데이터 초기화
+├── setup_and_run.sh           # 원클릭 설치·실행 스크립트
+├── run.sh                     # 서버 실행 스크립트
+├── requirements.txt           # Python 의존성
+├── .env.example               # 환경변수 예시
 │
-├── orchestrator/            # 오케스트레이터
-│   ├── graph.py             # LangGraph 그래프 정의
-│   ├── nodes.py              # Routing / Run Agents / Summarize 노드
-│   ├── prompts.yaml          # 라우팅·요약 프롬프트
-│   ├── schemas.py            # Pydantic 스키마
-│   ├── states.py             # LangGraph 상태 정의
-│   ├── functions.py          # 헬퍼 함수
-│   └── converters.py         # 에이전트 출력 변환기
+├── orchestrator/              # 오케스트레이터
+│   ├── graph.py               # LangGraph 그래프 정의
+│   ├── nodes.py               # Routing / Run Agents / Summarize 노드
+│   ├── prompts.yaml           # 라우팅·요약 프롬프트
+│   ├── schemas.py             # Pydantic 스키마
+│   ├── states.py              # LangGraph 상태 정의
+│   ├── functions.py           # 헬퍼 함수
+│   └── converters.py          # 에이전트 출력 변환기
 │
 ├── agents/
-│   ├── legal_agent/          # 법률·계약 에이전트
+│   ├── legal_agent/           # 법률·계약 에이전트
 │   │   ├── main.py
 │   │   ├── legal_config.py
 │   │   ├── legal_src/
-│   │   │   ├── Agent/        # graph, nodes, prompts, schemas, states, tools
-│   │   │   └── RAG/          # 벡터 DB, 임베딩, 검색
+│   │   │   ├── Agent/         # graph, nodes, prompts, schemas, states, tools
+│   │   │   └── RAG/           # 벡터 DB, 임베딩, 검색
 │   │   └── legal_utils/
 │   │
-│   ├── news_agent/           # 뉴스 검색 에이전트
+│   ├── news_agent/            # 뉴스 검색 에이전트
 │   │   ├── main.py
 │   │   ├── news_config.py
 │   │   ├── graph/             # graph, nodes, edges, state
 │   │   ├── embeddings.py
 │   │   └── vectorstore.py
 │   │
-│   ├── report_agent/         # 재무제표 분석 에이전트
+│   ├── report_agent/          # 재무제표 분석 에이전트
 │   │   ├── main.py
 │   │   ├── nodes.py           # LangGraph 노드 + UpstageDocumentParseClient
 │   │   ├── classes.py         # 데이터 클래스
 │   │   ├── router.py          # RouterAgent
 │   │   └── report_config.py
 │   │
-│   ├── stock_agent/          # 주식 투자 분석 에이전트
+│   ├── stock_agent/           # 주식 투자 분석 에이전트
 │   │   ├── main.py
 │   │   ├── stock_config.py
 │   │   └── stock_src/
-│   │       ├── Agent/          # 토론 그래프, Optimist/Pessimist 노드
-│   │       └── Crawling/       # 공시 크롤러
+│   │       ├── Agent/         # 토론 그래프, Optimist/Pessimist 노드
+│   │       └── Crawling/      # 공시 크롤러
 │   │
-│   └── trend_agent/          # 거시경제 트렌드 에이전트
+│   └── trend_agent/           # 거시경제 트렌드 에이전트
 │       ├── main.py            # 전체 LangGraph 워크플로우 포함
 │       ├── trend_config.py
 │       └── database.py
 │
-├── utils/                    # 공유 유틸리티
+├── utils/                     # 공유 유틸리티
 │   ├── kanana_pipeline.py     # Kanana 모델 싱글턴 로더·추론 래퍼
 │   ├── ticker_map.py          # 기업명 → Ticker 매핑
 │   ├── agent_keywords.py      # 에이전트별 라우팅 키워드
@@ -464,7 +464,7 @@ Kanana_Agent/
 │   ├── selenium_runtime.py    # Selenium 런타임 설정
 │   └── config_bootstrap.py    # 에이전트별 설정 부트스트랩
 │
-├── models/                   # 다운로드된 모델 (자동 생성)
+├── models/                    # 다운로드된 모델 (자동 생성)
 │   ├── Kanana/
 │   └── bge-m3/
 │
