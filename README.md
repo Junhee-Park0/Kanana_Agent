@@ -38,8 +38,8 @@ LangGraph 기반의 오케스트레이터가 사용자 질문을 분석하여 �
    │  Routing → Run Agents → Summarize  │
    └────┬───────────────────────────────┘
         │ 병렬 실행 (asyncio.gather)
-   ┌────┴──────────────────────────────────────────┐
-   │                                               │
+   ┌────┴──────────────────────────────────┐
+   │                                       │
    ▼        ▼         ▼          ▼         ▼
 Legal    News      Report     Stock     Trend
 Agent    Agent     Agent      Agent     Agent
