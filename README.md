@@ -254,10 +254,8 @@ input_router
 | `question` | string | 조건부 | 사용자 질문 (Report/Stock 단독 탭에서는 생략 가능) |
 | `ticker` | string | 조건부 | 종목 코드 (Stock Agent 사용 시 필수) |
 | `agents` | string[] | 선택 | 직접 지정 시 오케스트레이터 라우팅을 생략하고 해당 에이전트만 실행 |
-| `document_base64` | string | 선택 | 첨부 문서(PDF) base64 인코딩 데이터 |
-| `compare_mode` | `"YoY"` \| `"QoQ"` \| null | 선택 | Report Agent 증감 비교 기준 |
 
-> 실제 필드명은 `orchestrator/schemas.py`의 Pydantic 모델을 최신 기준으로 확인하세요.
+> 실제 필드명은 `orchestrator/schemas.py`의 Pydantic 모델을 확인하세요.
 
 ---
 
