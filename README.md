@@ -86,7 +86,7 @@ START → [Routing] → [Run Agents] → [Summarize] → END
 | 문서 첨부 + 질문 있음 | Legal Agent |
 | 문서 첨부 + 질문 없음 | Report Agent |
 | ticker만 입력 | Stock Agent |
-| 기업명/인물 언급 | News Agent 필수 포함 |
+| 기업명/인물 언급 | News Agent |
 | 거시경제(금리·환율·업황) 질문 | Trend Agent |
 | 법률·계약·소송 키워드 | Legal Agent |
 | 아무것도 해당 없음 | News Agent (기본값) |
@@ -332,13 +332,6 @@ USER_EMAIL=your_email@example.com         # Selenium 크롤링 인증 (Stock Age
 | Report Agent | 약 71초 | +1,306 MB | PDF 파싱(Upstage API) 포함 |
 | Legal Agent | 약 176초 | +6,996 MB | 판례 검색 + LLM 추론 |
 | Orchestrator (복합) | 약 298초 | — | News + Stock 에이전트 조합 |
-
-측정 도구 `benchmark.py`를 포함하고 있으며, 직접 실행해 재현할 수 있습니다.
-
-```bash
-source venv/bin/activate
-python benchmark.py
-```
 
 ---
 
